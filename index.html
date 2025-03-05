@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project OMG - Revolutionizing Cloud Interactions</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- GSAP Animation Library CDN with additional plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    
+    <!-- Three.js for enhanced 3D effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-gray-200 font-sans overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <span class="text-blue-600 text-2xl font-bold">OMG</span>
+                <span class="text-gray-700 ml-2 text-xl">by Emumba</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#features" class="text-gray-700 hover:text-blue-600 transition duration-300">Features</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 transition duration-300">About</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-blue-600 transition duration-300">Testimonials</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 transition duration-300">Contact</a>
+            </div>
+            <button class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-gray-700"></i>
+            </button>
+        </div>
+        <!-- Mobile menu (hidden by default) -->
+        <div class="md:hidden hidden bg-white pb-4 px-6">
+            <a href="#features" class="block py-2 text-gray-700 hover:text-blue-600">Features</a>
+            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600">About</a>
+            <a href="#testimonials" class="block py-2 text-gray-700 hover:text-blue-600">Testimonials</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <header class="hero-section min-h-screen pt-24 pb-16 md:pt-28 md:pb-24 overflow-hidden relative">
+        <!-- Gradient Background -->
+        <div class="absolute inset-0 bg-gradient-radial from-blue-900/30 via-indigo-900/20 to-transparent"></div>
+        
+        <!-- Particle System Background -->
+        <div class="particles-js absolute inset-0"></div>
+        
+        <!-- 3D Grid Overlay -->
+        <div class="grid-overlay absolute inset-0"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center h-full">
+            <div class="md:w-1/2 text-center md:text-left" data-aos="fade-right" data-aos-duration="1000">
+                <div class="relative">
+                    <div class="glow-effect absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-25"></div>
+                    <div class="relative bg-gray-900/50 backdrop-blur-xl rounded-xl p-8 border border-blue-500/20 shadow-2xl">
+                        <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-4">
+                            Project <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">OMG</span>
+                        </h1>
+                        <h2 class="text-xl md:text-2xl mb-6 text-blue-100">Revolutionizing the way users interact with cloud-based systems</h2>
+                        <p class="mb-8 text-gray-300">Experience the next generation of cloud computing with our intuitive, powerful, and scalable platform.</p>
+                        <div class="flex flex-col sm:flex-row justify-center md:justify-start">
+                            <a href="#" class="btn-primary mb-4 sm:mb-0 sm:mr-4">
+                                Get Started
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="#" class="btn-secondary">
+                                Learn More
+                                <i class="fas fa-info-circle ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2 mb-10 md:mb-0 h-96 md:h-[35rem] relative perspective-container" data-aos="fade-left" data-aos-duration="1000">
+                <!-- 3D Scene Container -->
+                <div id="hero-3d-scene" class="scene w-full h-full relative">
+                    <!-- Central platform -->
+                    <div class="platform absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <!-- Core elements -->
+                        <div class="core-sphere"></div>
+                        <div class="core-ring ring-1"></div>
+                        <div class="core-ring ring-2"></div>
+                        <div class="core-ring ring-3"></div>
+                        
+                        <!-- Hologram projection -->
+                        <div class="hologram-container">
+                            <div class="hologram-beam"></div>
+                            <div class="hologram-icon">
+                                <i class="fas fa-cloud text-blue-400 text-5xl opacity-90"></i>
+                            </div>
+                            <div class="hologram-base"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Orbiting elements -->
+                    <div class="orbiting-elements">
+                        <!-- Data nodes -->
+                        <div class="node node-1" data-tooltip="Server Infrastructure">
+                            <div class="node-icon"><i class="fas fa-server"></i></div>
+                            <div class="node-pulse"></div>
+                        </div>
+                        <div class="node node-2" data-tooltip="Secure Storage">
+                            <div class="node-icon"><i class="fas fa-database"></i></div>
+                            <div class="node-pulse"></div>
+                        </div>
+                        <div class="node node-3" data-tooltip="Advanced Security">
+                            <div class="node-icon"><i class="fas fa-lock"></i></div>
+                            <div class="node-pulse"></div>
+                        </div>
+                        <div class="node node-4" data-tooltip="Real-time Analytics">
+                            <div class="node-icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="node-pulse"></div>
+                        </div>
+                        <div class="node node-5" data-tooltip="Mobile Access">
+                            <div class="node-icon"><i class="fas fa-mobile-alt"></i></div>
+                            <div class="node-pulse"></div>
+                        </div>
+                        <div class="node node-6" data-tooltip="Customizable Settings">
+                            <div class="node-icon"><i class="fas fa-cog"></i></div>
+                            <div class="node-pulse"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Connection paths -->
+                    <div class="connections">
+                        <svg class="connections-svg" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+                            <defs>
+                                <linearGradient id="connection-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#60A5FA" />
+                                    <stop offset="100%" stop-color="#8B5CF6" />
+                                </linearGradient>
+                                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="2" result="blur" />
+                                    <feFlood flood-color="#60A5FA" flood-opacity="0.5" result="color" />
+                                    <feComposite in="color" in2="blur" operator="in" result="glow" />
+                                    <feMerge>
+                                        <feMergeNode in="glow" />
+                                        <feMergeNode in="SourceGraphic" />
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            
+                            <g class="connection-lines" filter="url(#glow)">
+                                <path class="connection-path path-1" stroke="url(#connection-gradient)" stroke-width="0.5" fill="none" stroke-dasharray="1,2" />
+                                <path class="connection-path path-2" stroke="url(#connection-gradient)" stroke-width="0.5" fill="none" stroke-dasharray="1,2" />
+                                <path class="connection-path path-3" stroke="url(#connection-gradient)" stroke-width="0.5" fill="none" stroke-dasharray="1,2" />
+                                <path class="connection-path path-4" stroke="url(#connection-gradient)" stroke-width="0.5" fill="none" stroke-dasharray="1,2" />
+                                <path class="connection-path path-5" stroke="url(#connection-gradient)" stroke-width="0.5" fill="none" stroke-dasharray="1,2" />
+                                <path class="connection-path path-6" stroke="url(#connection-gradient)" stroke-width="0.5" fill="none" stroke-dasharray="1,2" />
+                            </g>
+                            
+                            <!-- Data flow animations -->
+                            <g class="data-flows">
+                                <circle class="data-packet packet-1" r="0.8" fill="#60A5FA" />
+                                <circle class="data-packet packet-2" r="0.8" fill="#818CF8" />
+                                <circle class="data-packet packet-3" r="0.8" fill="#A78BFA" />
+                                <circle class="data-packet packet-4" r="0.8" fill="#8B5CF6" />
+                                <circle class="data-packet packet-5" r="0.8" fill="#60A5FA" />
+                                <circle class="data-packet packet-6" r="0.8" fill="#818CF8" />
+                            </g>
+                        </svg>
+                    </div>
+                    
+                    <!-- Floating particles -->
+                    <div class="floating-particles"></div>
+                </div>
+                
+                <!-- Tooltip container -->
+                <div class="tooltip hidden absolute bg-gray-900/90 backdrop-blur-sm text-white p-2 rounded-lg border border-blue-500/30 text-sm z-30">
+                    Feature info will appear here
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Revolutionary Features</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md" data-aos="flip-up" data-aos-delay="100">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-cloud text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Seamless Cloud Integration</h3>
+                    <p class="text-gray-600">Connect with multiple cloud providers through a single, unified interface.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md" data-aos="flip-up" data-aos-delay="300">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-lock text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Advanced Security</h3>
+                    <p class="text-gray-600">Enterprise-grade security with multi-factor authentication and end-to-end encryption.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md" data-aos="flip-up" data-aos-delay="500">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-chart-line text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Real-time Analytics</h3>
+                    <p class="text-gray-600">Gain valuable insights with our powerful analytics and reporting tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <img src="https://via.placeholder.com/600x400?text=About+Emumba" alt="About Emumba" class="rounded-lg shadow-xl">
+                </div>
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+                    <h2 class="text-3xl font-bold mb-6">About Project OMG</h2>
+                    <p class="text-gray-600 mb-6">At Emumba, our mission is to revolutionize how businesses interact with cloud-based systems. Project OMG is the culmination of years of research and development in cloud technologies.</p>
+                    <p class="text-gray-600 mb-6">Our team of expert developers and designers have created a platform that simplifies complex cloud operations while enhancing security and performance.</p>
+                    <div class="flex flex-wrap -mx-2">
+                        <div class="w-1/2 px-2 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                <span>Performance Optimized</span>
+                            </div>
+                        </div>
+                        <div class="w-1/2 px-2 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                <span>Highly Scalable</span>
+                            </div>
+                        </div>
+                        <div class="w-1/2 px-2 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                <span>Cost Effective</span>
+                            </div>
+                        </div>
+                        <div class="w-1/2 px-2 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                <span>24/7 Support</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">What Our Clients Say</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md" data-aos="fade-up">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">"Project OMG has completely transformed how we manage our cloud infrastructure. It's intuitive, powerful, and has saved us countless hours."</p>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/50" alt="Client" class="rounded-full w-12 h-12">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <p class="text-sm text-gray-600">CTO, TechCorp</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">"The security features alone make this platform worth every penny. We've seen a 40% increase in operational efficiency since implementation."</p>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/50" alt="Client" class="rounded-full w-12 h-12">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Michael Thompson</h4>
+                            <p class="text-sm text-gray-600">IT Director, Global Systems</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">"As a startup, we needed something scalable and cost-effective. Project OMG delivered beyond our expectations. The analytics tools are exceptional!"</p>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/50" alt="Client" class="rounded-full w-12 h-12">
+                        <div class="ml-4">
+                            <h4 class="font-bold">Jessica Lee</h4>
+                            <p class="text-sm text-gray-600">Founder, NextGen Solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-blue-600 text-white">
+        <div class="container mx-auto px-6 text-center" data-aos="zoom-in">
+            <h2 class="text-3xl font-bold mb-6">Ready to Revolutionize Your Cloud Experience?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Join thousands of satisfied customers who have transformed their cloud operations with Project OMG.</p>
+            <div class="flex justify-center">
+                <a href="#" class="bg-white hover:bg-gray-100 text-blue-600 font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300">Get Started Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Project OMG</h3>
+                    <p class="text-gray-400">Revolutionizing cloud interactions one feature at a time.</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white">Features</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">API Reference</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Status</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Help Center</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> 123 Innovation Drive, Techville</li>
+                        <li><i class="fas fa-phone mr-2"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope mr-2"></i> info@projectomg.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2023 Emumba. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS animation library
+        AOS.init();
+        
+        // Mobile menu toggle
+        document.querySelector('button').addEventListener('click', function() {
+            const mobileMenu = document.querySelector('.md\\:hidden.hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+        
+        // Enhanced GSAP animations for the hero section
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize 3D particles background
+            const particlesContainer = document.querySelector('.particles-js');
+            for (let i = 0; i < 100; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.setProperty('--size', Math.random() * 3 + 1 + 'px');
+                particlesContainer.appendChild(particle);
+                
+                gsap.set(particle, {
+                    x: Math.random() * 100 + '%',
+                    y: Math.random() * 100 + '%',
+                    opacity: Math.random() * 0.5 + 0.2
+                });
+                
+                gsap.to(particle, {
+                    x: `+=${Math.random() * 20 - 10}%`,
+                    y: `+=${Math.random() * 20 - 10}%`,
+                    duration: Math.random() * 20 + 20,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: 'sine.inOut'
+                });
+            }
+            
+            // Create 3D grid overlay
+            const gridOverlay = document.querySelector('.grid-overlay');
+            for (let i = 0; i < 20; i++) {
+                const horizontalLine = document.createElement('div');
+                horizontalLine.className = 'grid-line horizontal';
+                horizontalLine.style.top = (i * 5) + '%';
+                
+                const verticalLine = document.createElement('div');
+                verticalLine.className = 'grid-line vertical';
+                verticalLine.style.left = (i * 5) + '%';
+                
+                gridOverlay.appendChild(horizontalLine);
+                gridOverlay.appendChild(verticalLine);
+            }
+            
+            // Core platform animations
+            gsap.to('.core-sphere', {
+                scale: 1.1,
+                opacity: 0.8,
+                duration: 2,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut'
+            });
+            
+            gsap.to('.core-ring.ring-1', {
+                rotation: 360,
+                transformOrigin: 'center center',
+                duration: 30,
+                repeat: -1,
+                ease: 'none'
+            });
+            
+            gsap.to('.core-ring.ring-2', {
+                rotation: -360,
+                transformOrigin: 'center center',
+                duration: 20,
+                repeat: -1,
+                ease: 'none'
+            });
+            
+            gsap.to('.core-ring.ring-3', {
+                rotation: 360,
+                transformOrigin: 'center center',
+                duration: 40,
+                repeat: -1,
+                ease: 'none'
+            });
+            
+            // Hologram animation
+            gsap.to('.hologram-icon', {
+                y: -5,
+                duration: 2,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut'
+            });
+            
+            gsap.to('.hologram-beam', {
+                opacity: 0.7,
+                duration: 1.5,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut'
+            });
+            
+            // Orbit animations for nodes
+            const nodePositions = [
+                { x: -80, y: -60, delay: 0 },
+                { x: 80, y: -60, delay: 0.5 },
+                { x: -80, y: 60, delay: 1 },
+                { x: 80, y: 60, delay: 1.5 },
+                { x: 0, y: -100, delay: 2 },
+                { x: 0, y: 100, delay: 2.5 }
+            ];
+            
+            document.querySelectorAll('.node').forEach((node, index) => {
+                const pos = nodePositions[index];
+                
+                // Set initial position
+                gsap.set(node, {
+                    x: pos.x,
+                    y: pos.y,
+                    opacity: 0,
+                    scale: 0
+                });
+                
+                // Animate in
+                gsap.to(node, {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1,
+                    delay: pos.delay,
+                    ease: 'back.out(1.7)'
+                });
+                
+                // Create orbit animation
+                const orbitTl = gsap.timeline({
+                    repeat: -1,
+                    defaults: { ease: 'none' }
+                });
+                
+                orbitTl.to(node, {
+                    motionPath: {
+                        path: [
+                            { x: pos.x, y: pos.y },
+                            { x: pos.x * 0.8, y: pos.y * 1.2 },
+                            { x: pos.x * 1.2, y: pos.y * 0.8 },
+                            { x: pos.x, y: pos.y }
+                        ],
+                        curviness: 1.5
+                    },
+                    duration: 20 + index * 2
+                });
+                
+                // Pulse animation
+                gsap.to(node.querySelector('.node-pulse'), {
+                    scale: 1.5,
+                    opacity: 0,
+                    duration: 2,
+                    repeat: -1,
+                    ease: 'power1.out'
+                });
+            });
+            
+            // Generate SVG paths for connections
+            function updateConnectionPaths() {
+                const centerX = 50;
+                const centerY = 50;
+                
+                document.querySelectorAll('.node').forEach((node, index) => {
+                    const rect = node.getBoundingClientRect();
+                    const parentRect = document.querySelector('.scene').getBoundingClientRect();
+                    
+                    // Calculate relative positions
+                    const nodeX = ((rect.left + rect.width / 2) - parentRect.left) / parentRect.width * 100;
+                    const nodeY = ((rect.top + rect.height / 2) - parentRect.top) / parentRect.height * 100;
+                    
+                    // Generate curved path
+                    const path = document.querySelector(`.connection-path.path-${index + 1}`);
+                    const controlX = centerX + (nodeX - centerX) * 0.5;
+                    const controlY = centerY + (nodeY - centerY) * 0.5;
+                    
+                    path.setAttribute('d', `M${centerX},${centerY} Q${controlX},${controlY} ${nodeX},${nodeY}`);
+                });
+            }
+            
+            // Update connection paths initially and on animation frame
+            gsap.ticker.add(updateConnectionPaths);
+            
+            // Animate data packets along paths
+            document.querySelectorAll('.data-packet').forEach((packet, index) => {
+                animateDataPacket(packet, index + 1);
+            });
+            
+            function animateDataPacket(packet, pathNum) {
+                const path = document.querySelector(`.connection-path.path-${pathNum}`);
+                
+                gsap.to(packet, {
+                    motionPath: {
+                        path: path,
+                        align: path,
+                        alignOrigin: [0.5, 0.5]
+                    },
+                    duration: Math.random() * 3 + 3,
+                    repeat: -1,
+                    ease: 'none'
+                });
+                
+                // Pulse animation
+                gsap.to(packet, {
+                    opacity: 0.3,
+                    scale: 0.6,
+                    duration: 1,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: 'sine.inOut'
+                });
+            }
+            
+            // Add floating particles
+            const floatingParticles = document.querySelector('.floating-particles');
+            for (let i = 0; i < 40; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'floating-particle';
+                floatingParticles.appendChild(particle);
+                
+                gsap.set(particle, {
+                    x: Math.random() * 100 + '%',
+                    y: Math.random() * 100 + '%',
+                    scale: Math.random() * 0.5 + 0.2,
+                    opacity: Math.random() * 0.5 + 0.1
+                });
+                
+                gsap.to(particle, {
+                    x: `+=${Math.random() * 40 - 20}%`,
+                    y: `+=${Math.random() * 40 - 20}%`,
+                    rotation: Math.random() * 360,
+                    duration: Math.random() * 30 + 20,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: 'sine.inOut'
+                });
+            }
+            
+            // Mouse parallax effect
+            const scene = document.getElementById('hero-3d-scene');
+            const layers = [
+                { element: '.platform', depth: 0.2 },
+                { element: '.node-1', depth: 0.5 },
+                { element: '.node-2', depth: 0.6 },
+                { element: '.node-3', depth: 0.7 },
+                { element: '.node-4', depth: 0.8 },
+                { element: '.node-5', depth: 0.9 },
+                { element: '.node-6', depth: 1 },
+                { element: '.floating-particles', depth: 0.3 }
+            ];
+            
+            document.querySelector('.perspective-container').addEventListener('mousemove', (e) => {
+                const rect = scene.getBoundingClientRect();
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const mouseX = e.clientX - rect.left;
+                const mouseY = e.clientY - rect.top;
+                
+                const moveX = (mouseX - centerX) / centerX;
+                const moveY = (mouseY - centerY) / centerY;
+                
+                layers.forEach(layer => {
+                    const elements = document.querySelectorAll(layer.element);
+                    elements.forEach(el => {
+                        gsap.to(el, {
+                            x: moveX * 20 * layer.depth,
+                            y: moveY * 20 * layer.depth,
+                            duration: 1,
+                            ease: 'power1.out'
+                        });
+                    });
+                });
+            });
+            
+            // Tooltip functionality
+            const tooltip = document.querySelector('.tooltip');
+            document.querySelectorAll('.node').forEach(node => {
+                node.addEventListener('mouseenter', function(e) {
+                    const tooltipText = this.getAttribute('data-tooltip');
+                    tooltip.textContent = tooltipText;
+                    tooltip.classList.remove('hidden');
+                    
+                    // Position tooltip near the node
+                    const nodeRect = this.getBoundingClientRect();
+                    const sceneRect = scene.getBoundingClientRect();
+                    
+                    tooltip.style.left = (nodeRect.left - sceneRect.left + nodeRect.width) + 'px';
+                    tooltip.style.top = (nodeRect.top - sceneRect.top) + 'px';
+                    
+                    gsap.fromTo(tooltip, { 
+                        opacity: 0, 
+                        y: 10 
+                    }, { 
+                        opacity: 1, 
+                        y: 0, 
+                        duration: 0.3 
+                    });
+                    
+                    // Highlight the node
+                    gsap.to(this, {
+                        scale: 1.2,
+                        boxShadow: '0 0 20px rgba(96, 165, 250, 0.8)',
+                        duration: 0.3
+                    });
+                });
+                
+                node.addEventListener('mouseleave', function() {
+                    tooltip.classList.add('hidden');
+                    
+                    // Return node to normal
+                    gsap.to(this, {
+                        scale: 1,
+                        boxShadow: '0 0 10px rgba(96, 165, 250, 0.3)',
+                        duration: 0.3
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+/* Custom styles to enhance the Tailwind CSS framework */
+
+/* Smooth scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Gradient text effect for headings */
+.gradient-text {
+    background: linear-gradient(90deg, #3182ce, #63b3ed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Custom shadow for cards on hover */
+.hover-shadow {
+    transition: all 0.3s ease;
+}
+
+.hover-shadow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom styles for buttons */
+.btn-primary {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+    color: white;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.6s ease;
+    z-index: 1;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 20px -3px rgba(59, 130, 246, 0.4);
+}
+
+.btn-secondary {
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1F2937;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4B5563;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6B7280;
+}
+
+/* Responsive font sizing */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    h2 {
+        font-size: 1.75rem !important;
+    }
+}
+
+/* Add subtle texture to the background */
+.bg-texture {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Enhanced focus states for accessibility */
+a:focus, button:focus {
+    outline: 2px solid #3182ce;
+    outline-offset: 2px;
+}
+
+/* 3D Hero Section Styles */
+.hero-3d-container {
+    perspective: 1000px;
+    overflow: hidden;
+    position: relative;
+}
+
+.floating-element {
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.cloud-platform {
+    filter: blur(20px);
+    z-index: 1;
+}
+
+.cloud-icon {
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+    z-index: 3;
+}
+
+.connection {
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.particle {
+    filter: blur(1px);
+    opacity: 0.6;
+    z-index: 1;
+}
+
+/* Responsive adjustments for 3D scene */
+@media (max-width: 768px) {
+    .floating-element {
+        width: 50px !important;
+        height: 50px !important;
+    }
+    
+    .cloud-icon {
+        font-size: 3rem !important;
+    }
+}
+
+/* Enhanced 3D Hero Section Styles */
+.hero-section {
+    position: relative;
+    background-color: #111827;
+    overflow: hidden;
+}
+
+/* Background radial gradient */
+.bg-gradient-radial {
+    background: radial-gradient(circle at center, var(--tw-gradient-from) 0%, var(--tw-gradient-via) 50%, var(--tw-gradient-to) 100%);
+}
+
+/* Particle system */
+.particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #60A5FA, #8B5CF6);
+    width: var(--size, 2px);
+    height: var(--size, 2px);
+    opacity: 0.2;
+}
+
+/* 3D grid overlay */
+.grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.grid-line {
+    position: absolute;
+    background: rgba(96, 165, 250, 0.1);
+}
+
+.grid-line.horizontal {
+    width: 100%;
+    height: 1px;
+    transform-origin: left center;
+    transform: scaleX(0);
+    animation: grid-line-expand 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.grid-line.vertical {
+    height: 100%;
+    width: 1px;
+    transform-origin: center top;
+    transform: scaleY(0);
+    animation: grid-line-expand 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation-delay: 0.
+}
